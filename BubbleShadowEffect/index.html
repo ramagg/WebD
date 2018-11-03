@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Background Shadow Effect</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+  <script src="main.js"></script> -->
+  <style>
+    
+    body{
+      background: cyan;
+      margin: 50px;     
+      display: flex;
+      
+    }
+    .grid{
+      display: flex;
+      flex-wrap: wrap;
+      align-content: center;
+      align-items: center;
+      background: black;
+      overflow: hidden;   
+      position: relative; 
+    }
+    .item {
+      flex: 2 auto;
+      display: flex;
+      justify-content: center;
+      align-items: center; 
+      margin: 2px;
+      height: 20vh;
+      align-self: center;
+      background: black;
+      color: white;
+      z-index: 2;
+      border: 3px solid transparent;
+    }
+    .item:hover {
+      background: rgba(0,0,0,0.8);
+      border: 3px solid rgb(177, 177, 177);
+    }
+    .shadow {
+      position: absolute;
+      border-radius: 100%;
+      box-shadow: 0px 0px 200px 200px hsl(0, 0%, 60%);
+      background: #ccc;
+      left: 0px;
+      top: 0px;
+      z-index: 1;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="grid">
+      <span class="shadow"></span>
+      <div class="item"> <span>Hey i'am an item!</span> 😎 </div>
+      <div class="item"> <span>Hey i'am an item!</span> 😎 </div>
+      <div class="item"> <span>Hey i'am an item!</span> 😎 </div>
+      <div class="item"> <span>Hey i'am an item!</span> 😎 </div>
+      <div class="item"> <span>Hey i'am an item!</span> 😎 </div>
+      <div class="item"> <span>Hey i'am an item!</span> 😎 </div>
+      <div class="item"> <span>Hey i'am an item!</span> 😎 </div>
+      <div class="item"> <span>Hey i'am an item!</span> 😎 </div>
+      <div class="item"> <span>Hey i'am an item!</span> 😎 </div>
+      <div class="item"> <span>Hey i'am an item!</span> 😎 </div>
+      <div class="item"> <span>Hey i'am an item!</span> 😎 </div>
+      <div class="item"> <span>Hey i'am an item!</span> 😎 </div>
+      <div class="item"> <span>Hey i'am an item!</span> 😎 </div>
+      <div class="item"> <span>Hey i'am an item!</span> 😎 </div>
+      <div class="item"> <span>Hey i'am an item!</span> 😎 </div>
+      <div class="item"> <span>Hey i'am an item!</span> 😎 </div>
+      <div class="item"> <span>Hey i'am an item!</span> 😎 </div>
+      <div class="item"> <span>Hey i'am an item!</span> 😎 </div>
+      <div class="item"> <span>Hey i'am an item!</span> 😎 </div>
+      <div class="item"> <span>Hey i'am an item!</span> 😎 </div>
+      <div class="item"> <span>Hey i'am an item!</span> 😎 </div>
+      <div class="item"> <span>Hey i'am an item!</span> 😎 </div>
+      <div class="item"> <span>Hey i'am an item!</span> 😎 </div>
+      <div class="item"> <span>Hey i'am an item!</span> 😎 </div>
+      <div class="item"> <span>Hey i'am an item!</span> 😎 </div>
+      <div class="item"> <span>Hey i'am an item!</span> 😎 </div>
+      <div class="item"> <span>Hey i'am an item!</span> 😎 </div>
+      <div class="item"> <span>Hey i'am an item!</span> 😎 </div>
+      <div class="item"> <span>Hey i'am an item!</span> 😎 </div>
+      <div class="item"> <span>Hey i'am an item!</span> 😎 </div>
+  </div>
+
+  <script>
+    grid = document.querySelector('.grid');
+    shad =  document.querySelector('.shadow');
+    shad.hidden = true;
+    function moveShadow(e){
+      let x = e.clientX - 50;
+      let y = e.clientY - 50 + document.documentElement.scrollTop;
+      shad.style.transform = `translate(${x}px,${y}px)`;
+    }
+    grid.addEventListener('mousemove',moveShadow);
+    grid.addEventListener('mouseleave',() => shad.hidden = true );
+    grid.addEventListener('mouseenter', () => shad.hidden = false);
+    
+  </script>
+</body>
+</html>
