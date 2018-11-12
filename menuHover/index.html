@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>menuHover</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+<style>
+  body {
+    margin:0;
+    font-family: 'Open Sans', sans-serif;
+    background: rgb(39, 39, 39);
+  }
+  .menu {
+    display: flex;
+  }
+  .tabs{
+    display:flex;
+    flex-direction: column;
+  }
+  .tab {
+    background:teal;
+    color:white;
+    min-width: 100px;
+    padding: 10px;
+    user-select: none;
+    border-right: 5px solid rgb(0, 104, 104);
+  }
+  .contents {
+    background: white;
+    flex: 1 0;
+  }
+  .content {
+    height: 100%;
+    padding: 0 10px;
+    transition: 500ms all;
+  }
+  .inactive { display:none;}
+  .active { display: block;}
+
+  #first {background:orangered ;}
+  #second {background: cadetblue;}
+  #third {background: aquamarine;}
+  #fourth {background: saddlebrown ;}
+  #fifth {background: chartreuse;} 
+</style>
+</head>
+<body>
+<div class="menu">
+  <div class="tabs">
+    <span class="tab" data-id="first">First</span>
+    <span class="tab" data-id="second">Second</span>
+    <span class="tab" data-id="third">Third</span>
+    <span class="tab" data-id="fourth">Fourth</span>
+    <span class="tab" data-id="fifth">Fifth</span>
+  </div>
+  <div class="contents">
+    <div id="first" class="content">First: Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore, facilis.</div>
+    <div id="second" class="content">Second: Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ea, fugit.</div>
+    <div id="third" class="content">Third: Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptas, inventore.</div>
+    <div id="fourth" class="content">Fourth: Lorem ipsum dolor sit amet consectetur adipisicing elit. In, suscipit.</div>
+    <div id="fifth" class="content">Fifth: Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa, voluptate?</div>
+  </div>
+</div>
+<script>
+  let menu = document.querySelector('.menu');
+  let tabs = document.querySelectorAll('.tab');
+  let contents = document.querySelectorAll('.contents');
+  let content;
+  let last;
+
+  function enter(e){ 
+    content = document.querySelector(`#${this.dataset.id}`);
+    content.classList.add('active');
+    content.classList.remove('inactive');
+
+    if (last && last != content){
+      last.classList.remove('active');
+      last.classList.add('inactive');
+    }
+  }
+  function leave(){
+    last = document.querySelector(`#${this.dataset.id}`);
+  }
+  tabs.forEach( (tab)=>{
+    content = document.querySelector(`#${tab.dataset.id}`);
+    content.classList.add('inactive')
+    tab.addEventListener('mouseenter', enter);
+    tab.addEventListener('mouseleave', leave);
+  });
+
+</script>
+</body>
+</html>
