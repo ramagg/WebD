@@ -9,8 +9,10 @@
 }
 body{
   margin: 0;
-  background: rgb(27, 27, 27);
+  background: rgb(25, 25, 25);
   color: white;
+  /* font-family: 'Roboto', sans-serif; */
+  font-family: 'Open Sans', sans-serif;
 }
 .spacer {
   height: 5px;
@@ -22,17 +24,19 @@ body{
   grid-template-columns: 20% 20% 20% 20% 20%;
   text-align: center;
   position: fixed;
-  top:0;
+  top: 0;
   width: 100%;
   background: white;
   color: black;
   border-radius: 0px 0px 5px 5px;
   /* grid-template-rows: 25% 100px auto; */
 }
+
 .day{
   padding: 10px 0;
   border-right: 2px solid black;
 }
+
 .day:last-child {
   border-right: none;
 }
@@ -44,7 +48,8 @@ body{
   grid-template-columns: 20% 20% 20% 20% 20%;
   text-align: center;
   padding: 10px 0;
-  border-bottom: 5px solid rgb(41, 13, 13);
+  border-bottom: 15px solid rgb(25, 25, 25);
+  background: rgb(30, 30, 30);
   /* grid-template-rows: 25% 100px auto; */
 }
 

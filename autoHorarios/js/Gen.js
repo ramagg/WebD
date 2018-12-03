@@ -47,18 +47,6 @@ claseInfo("D1P1");
 // Discriminator 
 // It determinates if a combination is posible or not
 let arrID = idGive(data)
-
 let comb = cartesian(data)
-// itemData.push(claseInfo(item)
 
-// function disc(arrObj){
-// 	let rtn = true
-// 	let i = 0
-// 	while (i < arrObj.length) {
-// 		console.log(arrObj[i].Dia)
-// 		console.log(arrObj[i].Horario)
-// 		i++;
-// 	}
-// }
-// disc(comb[0])
 

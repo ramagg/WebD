@@ -1,6 +1,4 @@
-// Filter function 
-
-
+// Default Filter function 
 function deter(h1,h2){
   // Determina si dos horarios pueden estar juntos
   let min = h1
@@ -48,6 +46,15 @@ function DISC(item){
     return item
   }
 }
+const Defaultresult = comb.filter(DISC);
 
-const result = comb.filter(DISC);
-console.log('Numero de Resultados:', result.length)
+
+// Dinamic Filter
+let choices = {
+  'Dias': [1,1,1,1,1]
+}
+function filter(obj, arr){
+  // Object choices, arr to filter
+  
+}
+console.log('Numero de Resultados:', Defaultresult.length)
