@@ -119,3 +119,27 @@ function comb(){
   }
 }
 comb();
+
+// Recursion 
+
+let arra = [2,4,5,7,9];
+
+function factorial(number) {
+  if (number <= 0) { // terminal case
+    return 1;
+  } else { // block to execute
+    return (number * factorial(number - 1));
+  }
+};
+
+function insOrd(arr,n){
+  if (arr.length == 0){
+    return arr[0] = n;
+  }else if (arr[0] > n){
+    // Insertar n en 0, retornando un array
+    return [n].concat(arr);
+  }else {
+    let temp = arr.shift();
+    return [temp].concat(insOrd(arr,n));
+  }
+}
