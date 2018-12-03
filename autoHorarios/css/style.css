@@ -48,7 +48,7 @@ button {
   border-right: none;
 }
 .table {
-  margin-top: 40px;
+  margin-top: 60px;
   display:flex;
   flex-direction: column;
   align-items: center;
@@ -66,12 +66,6 @@ button {
   margin-bottom: 20px;
 }
 
-.comb div {
-  border: 1px solid rgb(10, 10, 10);
-  padding: 25px 0;
-  background: #252525;
-}
-
 .combID {
 
   position: absolute;
@@ -81,8 +75,32 @@ button {
   border-radius: 0px 0px 10px 0px;
 
 }
+.Card{
+  display:flex;
+  flex-direction: column;
+  border: 1px solid rgb(10, 10, 10);
+  /* padding: 25px 0; */
+  background: #252525;
+}
+.CardName {
+  background: #1e1e1e60;
+}
+.CardInfo{
+  display: flex;
+  justify-content: space-between;
+}
+.CardHora {
+  padding: 10px 10px;
+}
+.CardSalon {
+  padding: 10px 5px;
+  background: rgba(255, 255, 255, 0.1);
+}
 /* Sidepanel */
-
+.Sidepanel h3{
+  background: rgba(0, 0, 0, 0.3);
+  padding: 7px 0;
+}
 .Sidepanel {
 
   display: flex;
@@ -102,7 +120,7 @@ button {
 
 .Formfilter{
   display: flex;
-  padding:25px 0;
+  padding-bottom: 25px;
 }
 
 #acciones {
@@ -113,7 +131,22 @@ button {
   flex-direction: column;
 }
 #Dias{
-  padding: 0 10px;
+  /* padding: 0 10px; */
+}
+#RanH_i,#RanH_f{
+  width: 25px;
+  justify-self: center;
+}
+.gridHeader{
+  grid-column-start: 1;
+  grid-column-end: span 5;
+}
+.fivGrid{
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  justify-content: center;
+  align-items: center;
+  text-align: center; 
 }
 
 .chkDias{
@@ -141,13 +174,13 @@ input#chkDia {
 /* Media */
 @media (min-width: 768px) {
   .comb {
-  width: 59vw;
+  width: 60vw;
   }
 
   /* SidePanel */
   .days {
     left: 20vw;
-    width: 59vw;
+    width: 60vw;
   }
   .Sidepanel {
 
@@ -168,5 +201,6 @@ input#chkDia {
   }
   #acciones {
     flex-direction: row;
+    padding: 20px 10px;
   }
  }

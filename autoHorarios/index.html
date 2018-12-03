@@ -17,9 +17,9 @@
 	<div id="table" class="table"></div>
 	<div class="Sidepanel">
 		<form class="Formfilter">
-			<h2> Filtros </h2>
+			<h2>⚙ Filtros </h2>
 			<div id="Dias">
-				<h3>📅 Cambiar Dias</h3>
+				<h3>📅 Dias</h3>
 				<div class="chkDias">
 						<span class="spnDia">Lun</span>
 						<span class="spnDia">Mar</span>
@@ -32,6 +32,38 @@
 						<input id="chkDia" type="checkbox" name="3" value="1" checked>
 						<input id="chkDia" type="checkbox" name="4" value="1" checked>
 				</div>
+			</div>
+			<div id="RangoHoras">
+				<h3>🕝 Rango Horas <input id="RangoHchk" type="checkbox" value="rnchk"></h3>
+				
+				<div class="fivGrid">
+					<h4 class="gridHeader">Inicio</h4>
+					<span class="spnDia">Lun</span>
+					<span class="spnDia">Mar</span>
+					<span class="spnDia">Mie</span>
+					<span class="spnDia">Jue</span>
+					<span class="spnDia">Vie</span>
+					<input type="text" name="Lunes" id="RanH_i">
+					<input type="text" name="Martes" id="RanH_i">
+					<input type="text" name="Miercoles" id="RanH_i">
+					<input type="text" name="Jueves" id="RanH_i">
+					<input type="text" name="Viernes" id="RanH_i">
+					<h4 class="gridHeader">Final</h4>
+					<span class="spnDia">Lun</span>
+					<span class="spnDia">Mar</span>
+					<span class="spnDia">Mie</span>
+					<span class="spnDia">Jue</span>
+					<span class="spnDia">Vie</span>
+					<input type="text" name="Lunes" id="RanH_f">
+					<input type="text" name="Martes" id="RanH_f">
+					<input type="text" name="Miercoles" id="RanH_f">
+					<input type="text" name="Jueves" id="RanH_f">
+					<input type="text" name="Viernes" id="RanH_f">
+				</div>
+				<h4>Optimizar para:</h4>
+				<button id="ranMan">🌅 Mañana </button>
+				<button id="ranTar">🌞 Tarde </button>
+				<button id="ranNoche">🌙 Noche </button>
 			</div>
 			<div id="acciones">
 					<button type="submit" id="applyBtn">✅ Aplicar </button>
