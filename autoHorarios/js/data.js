@@ -37,7 +37,7 @@ let data = [
 
   [{'id':'D1P1', 'Dia': [0,1,0,1,0], 'Horario': [0,8,0,8,0],'fullName': 'Discreta 1: Practico 1', 'Color':'#533D52'},
   {'id':'D1P2', 'Dia': [1,0,1,0,0], 'Horario': [12,0,12,0,0],'fullName': 'Discreta 1: Practico 2', 'Color':'#533D52'},
-  {'id':'D1P3', 'Dia': [0,1,0,1,1], 'Horario': [0,14,0,14,0],'fullName': 'Discreta 1: Practico 3', 'Color':'#533D52'}],
+  {'id':'D1P3', 'Dia': [0,1,0,1,0], 'Horario': [0,14,0,14,0],'fullName': 'Discreta 1: Practico 3', 'Color':'#533D52'}],
 
   [{'id':'T1Cdivv', 'Dia': [1,0,1,0,1], 'Horario': [9.5,0,9.5,0,9.5],'fullName': 'Calculo: Teorico 1', 'Color':'#5E1742'},
   {'id':'T2Cdivv', 'Dia': [0,1,0,1,1], 'Horario': [0,14.5,0,14.5,12.5],'fullName': 'Calculo: Teorico 2', 'Color':'#5E1742'}],

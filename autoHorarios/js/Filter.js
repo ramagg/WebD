@@ -50,9 +50,14 @@ const Defaultresult = comb.filter(DISC);
 console.log('Numero de Resultados:', Defaultresult.length)
 
 // Dinamic Filter
-let choices = {
+let DefaultChoices = {
   'Dias': [1,1,1,1,1]
 }
+let choices = {
+  'Dias': [1,1,1,1,1],
+  'Horas': [16,16,16,16,16]
+}
+
 let FilterV = []
 
 function Dynamicfilter(obj, arr){
@@ -80,8 +85,8 @@ function Dynamicfilter(obj, arr){
 
   return rtn;
 }
-function applyFilt(){
-  FilterV = Dynamicfilter(choices, Defaultresult)
+function applyFilt(ch){
+  FilterV = Dynamicfilter(ch, Defaultresult)
   Display(FilterV);
   return FilterV.length;
 }
@@ -99,8 +104,10 @@ subBtn.addEventListener("click", function(event){
     choices.Dias[i] = item.checked
     // console.log(choices.Dias)
   })
-  console.log("Numero de Resultados:", applyFilt())
+  console.log("Numero de Resultados:", applyFilt(choices))
 });
 restBtn.addEventListener("click", function(event){
   event.preventDefault()
+  FilterForm.reset()
+  applyFilt(DefaultChoices)
 });

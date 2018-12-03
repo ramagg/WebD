@@ -49,15 +49,21 @@ button {
 }
 .table {
   margin-top: 40px;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
 }
 /* Combinations */
 .comb {
   display: grid;
   grid-template-columns: 20% 20% 20% 20% 20%;
-  text-align: center;
-  border-bottom: 15px solid rgb(25, 25, 25);
+  width: 100%;
   background: rgb(30, 30, 30);
-  /* grid-template-rows: 25% 100px auto; */
+
+  text-align: center;
+
+  border: 2px dashed rgba(255, 255, 255, 0.2);
+  margin-bottom: 20px;
 }
 
 .comb div {
@@ -80,45 +86,87 @@ button {
 .Sidepanel {
 
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
 
   position: fixed;
-  top: 0;
+  bottom: 0;
 
-  height: 100%;
-  width: 18vw;
+  /* height: 35vh; */
+  width: 100%;
   padding: 20px;
   
   background: rgb(30, 30, 30)
+}
+
+
+
+.Formfilter{
+  display: flex;
+  padding:25px 0;
 }
 
 #acciones {
 
   display: flex;
   justify-content: space-evenly;
-  padding: 10px;
-
+  padding: 0 10px;
+  flex-direction: column;
+}
+#Dias{
+  padding: 0 10px;
 }
 
 .chkDias{
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   grid-template-rows: 1fr 1fr;
+  justify-content: center;
+  align-items: center;
   text-align: center;
+}
+
+input#chkDia {
+  justify-self: center;
 }
 
 .ResultNum {
   position: absolute;
-  bottom: 10px;
+  bottom: 0;
+  height: 30px;
+  background: rgba(40, 40, 40, 1);
+  width: 100%;
+  left: 0;
+  text-align: center;
 }
 /* Media */
 @media (min-width: 768px) {
   .comb {
-    margin: auto 20vw;
+  width: 59vw;
   }
+
+  /* SidePanel */
   .days {
     left: 20vw;
     width: 59vw;
   }
+  .Sidepanel {
 
+    display: flex;
+    flex-direction: column;
+  
+    position: fixed;
+    top: 0;
+  
+    height: 100%;
+    width: 18vw;
+    padding: 20px;
+    
+    background: rgb(30, 30, 30)
+  }
+  .Formfilter{
+    display: initial;
+  }
+  #acciones {
+    flex-direction: row;
+  }
  }
