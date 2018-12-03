@@ -1,5 +1,7 @@
 function Display(arrC){
   const parentDiv = document.querySelector("#table");
+  const ResultNum = document.querySelector('.ResultNum')
+  parentDiv.innerHTML = ""
   arrC.forEach((item, j)=> {
     // Loop foreach element in the combination array
     let element = document.createElement("div");
@@ -17,11 +19,14 @@ function Display(arrC){
       })
     })
     // console.log(item)
-    element.innerHTML = p;
+    element.innerHTML = p+`<span class="combID">${j + 1}</span>`;
     element.setAttribute('class','comb')
+
     element.setAttribute('id',`${j}`)
+
     parentDiv.appendChild(element);
   })
+  ResultNum.innerHTML = `Numero de Resultados: ${arrC.length}`
 }
 
 Display(Defaultresult);

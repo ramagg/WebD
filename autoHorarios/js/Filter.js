@@ -47,14 +47,60 @@ function DISC(item){
   }
 }
 const Defaultresult = comb.filter(DISC);
-
+console.log('Numero de Resultados:', Defaultresult.length)
 
 // Dinamic Filter
 let choices = {
   'Dias': [1,1,1,1,1]
 }
-function filter(obj, arr){
+let FilterV = []
+
+function Dynamicfilter(obj, arr){
   // Object choices, arr to filter
-  
+  function FDias(item){
+    let k = 0
+    let i = 0
+    let cond = true
+    // Loop: Por los dias que se quiere mostrar
+    // while ((k < obj.Dias.length) && (cond)) {
+    for (let k = 0; k < obj.Dias.length; k++) {
+      if (!obj.Dias[k]){
+        i = 0
+        cond = true
+        while ((i < item.length) && (cond)){
+          if (item[i].Dia[k]) cond = false;
+          i++
+        }
+      }
+    }
+    
+    if (cond) return item;
+  }
+  let rtn = arr.filter(FDias);
+
+  return rtn;
 }
-console.log('Numero de Resultados:', Defaultresult.length)
+function applyFilt(){
+  FilterV = Dynamicfilter(choices, Defaultresult)
+  Display(FilterV);
+  return FilterV.length;
+}
+
+// Filter function 
+
+const FilterForm = document.querySelector('.Formfilter')
+const subBtn = document.querySelector("#applyBtn")
+const restBtn = document.querySelector("#resetBtn")
+const chkDia = document.querySelectorAll("#chkDia")
+
+subBtn.addEventListener("click", function(event){
+  event.preventDefault()
+  chkDia.forEach((item,i)=>{
+    choices.Dias[i] = item.checked
+    // console.log(choices.Dias)
+  })
+  console.log("Numero de Resultados:", applyFilt())
+});
+restBtn.addEventListener("click", function(event){
+  event.preventDefault()
+});

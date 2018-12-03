@@ -14,12 +14,35 @@
 		<span class="day">Jueves</span>
 		<span class="day">Viernes</span>
 	</div>
-	<div id="table" class="table">
+	<div id="table" class="table"></div>
+	<div class="Sidepanel">
+		<form class="Formfilter">
+			<h2> Filtros </h2>
+			<div id="Dias">
+				<h3>Cambiar Dias</h3>
+				<div class="chkDias">
+						<span class="spnDia">Lun</span>
+						<span class="spnDia">Mar</span>
+						<span class="spnDia">Mie</span>
+						<span class="spnDia">Jue</span>
+						<span class="spnDia">Vie</span>
+						<input id="chkDia" type="checkbox" name="0" value="1" checked>
+						<input id="chkDia" type="checkbox" name="1" value="1" checked>
+						<input id="chkDia" type="checkbox" name="2" value="1" checked>
+						<input id="chkDia" type="checkbox" name="3" value="1" checked>
+						<input id="chkDia" type="checkbox" name="4" value="1" checked>
+				</div>
+			</div>
+			<div id="acciones">
+					<button type="submit" id="applyBtn"> Aplicar </button>
+					<button id="resetBtn"> Resetear </button>
+			</div>
+		</form>
+		<span class="ResultNum"></span>
 	</div>
 	<script type="text/javascript" src="./js/data.js"></script>
 	<script type="text/javascript" src="./js/Gen.js"></script>
 	<script type="text/javascript" src="./js/Filter.js"></script>
 	<script type="text/javascript" src="./js/display.js"></script>
-
 </body>
 </html>
