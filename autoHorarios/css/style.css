@@ -1,3 +1,12 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+*:before, *:after {
+  box-sizing: border-box;
+}
 body{
   margin: 0;
   background: rgb(27, 27, 27);
@@ -16,13 +25,19 @@ body{
   top:0;
   width: 100%;
   background: white;
-  padding: 10px 0;
   color: black;
+  border-radius: 0px 0px 5px 5px;
   /* grid-template-rows: 25% 100px auto; */
+}
+.day{
+  padding: 10px 0;
+  border-right: 2px solid black;
+}
+.day:last-child {
+  border-right: none;
 }
 .table {
   margin-top: 40px;
-
 }
 .comb {
   display: grid;
@@ -38,3 +53,14 @@ body{
   padding: 25px 0;
   background: #252525;
 }
+
+@media (min-width: 768px) {
+  .comb {
+    margin: auto 20vw;
+  }
+  .days {
+    left: 20vw;
+    width: 59vw;
+  }
+
+ }

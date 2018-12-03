@@ -10,7 +10,7 @@ function deter(h1,h2){
     min = h2
     max = h1
   } 
-  return (min + 1.5) < max ;
+  return (min + 1.5) <= max ;
 }
 
 function test(arr){
@@ -50,24 +50,4 @@ function DISC(item){
 }
 
 const result = comb.filter(DISC);
-
-const parentDiv = document.querySelector("#table");
-result.forEach((item)=> {
-  let element = document.createElement("div");
-  let p = ``;
-
-  item.forEach((clase) => {
-
-    clase.Dia.forEach((item, i) => {
-      if (item){
-        p = p+`<div id=${i} style='grid-column-start: ${i+1};'>
-          ${clase.fullName}:<br> ${clase.Horario[i]}
-        </div>` 
-      }
-    })
-  })
-  // console.log(item)
-  element.innerHTML = p;
-  element.setAttribute('class','comb')
-  parentDiv.appendChild(element);
-})
+console.log('Numero de Resultados:', result.length)
