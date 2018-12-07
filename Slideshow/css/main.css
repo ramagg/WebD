@@ -1,0 +1,49 @@
+* {
+	box-sizing: border-box;
+}
+
+*:before, *:after {
+  box-sizing: border-box;
+}
+body {
+  background: rgba(60, 60, 60, 60);
+  margin: 0;
+}
+
+/**
+* Slide
+*/
+main {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+.Slide{
+  display: flex;
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  justify-content: center;
+  transition: all 500ms;
+  overflow: hidden;
+}
+
+#Simg{
+  position: absolute;
+  width: 60vw;
+
+  /* left: 800px; */
+  transform: translate(100%);
+  opacity: 0;
+  transition: all 500ms;
+}
+
+/**
+* Logic
+*/
+
+.Active{
+  opacity: 1!important;
+  transform: translate(0)!important;
+  transition: all 500ms!important;
+}
