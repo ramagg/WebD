@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Test</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- <link rel="stylesheet" type="text/css" media="screen" href="main.css" /> -->
+  <script>
+    console.log('****')
+    const Http = new XMLHttpRequest();
+    const url='http://localhost:8000/notes/all';
+    let result;
+    // Http.open("GET", url);
+    // Http.send();
+    // Http.onreadystatechange = (e) => {
+    //     result = JSON.parse(Http.responseText)
+    //     console.log(result) 
+    // }
+    // Promises yey!!
+    fetch(url)
+    .then(data=>{return data.json()})
+    .then(res=>{print(res)})
+    function print(items){
+      items.forEach(elem => {
+        console.table(elem)
+      });
+    }
+  </script>
+</head>
+<body>
+  
+</body>
+</html>
