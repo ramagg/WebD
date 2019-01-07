@@ -9,7 +9,8 @@ const port = 8000
 const app = express()
 
 app.use(bodyPareser.urlencoded({ extended: true}))
-app.use('/static', express.static(__dirname + '/public'));
+// Static files
+app.use('/', express.static(__dirname + '/public'));
 
 MongoClient.connect(db.url, (err, database) => {
   if (err) return console.log(err)
@@ -17,6 +18,6 @@ MongoClient.connect(db.url, (err, database) => {
   require('./app/routes')(app, database);
 
   app.listen(port, ()=>{
-    console.log('Todo bien ' + port)
+    console.log('All good server is at: localhost:' + port)
   })
 })
