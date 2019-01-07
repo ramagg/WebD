@@ -5,6 +5,12 @@ let ObjectID = require('mongodb').ObjectID
 
 module.exports = function(app, db){
   // Read route
+  app.get('/materias/all', (req, res) => {
+      db.collection('Materias').find({}).toArray((err, items)=>{
+        if (err) throw err;
+        res.send(items)
+      })
+    })
   app.get('/horarios/all', (req, res) => {
   //   collection.find({}).toArray(function(error, documents) {
   //     if (err) throw error;

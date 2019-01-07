@@ -1,4 +1,8 @@
-// Default Filter function 
+/**
+ * Default Filter function 
+ */
+
+// support function
 function deter(h1,h2){
   // Determina si dos horarios pueden estar juntos
   let min = h1
@@ -10,7 +14,7 @@ function deter(h1,h2){
   } 
   return (min + 1.5) <= max ;
 }
-
+// support function
 function test(arr){
   // Evalua si un dia no tiene horarios solapados
   let i = 0
@@ -26,7 +30,7 @@ function test(arr){
   }
   return Cond
 }
-
+// Function that discriminates the options
 function DISC(item){
   // Filtra las posibilidades con horarios solapados
   let i = 0
@@ -164,8 +168,10 @@ const FilterForm = document.querySelector('.Formfilter')
 const subBtn = document.querySelector("#applyBtn")
 const restBtn = document.querySelector("#resetBtn")
 
-const chkDia = document.querySelectorAll("#chkDia")
+
 // Rango Const
+const chkDia = document.querySelectorAll("#chkDia")
+
 const RanH_chk = document.querySelector("#RangoHchk")
 const RanH_i = document.querySelectorAll("#RanH_i")
 const RanH_f = document.querySelectorAll("#RanH_f")
@@ -174,13 +180,33 @@ const ranMan = document.querySelector("#ranMan")
 const ranTar = document.querySelector("#ranTar")
 const ranNoche = document.querySelector("#ranNoche")
 
+// subject const
+const url = 'http://localhost:8000/materias/all';
+const divMat = document.querySelector(".matGrid")
 
+let subjchektd = [];
+
+// Subbmit button 
 subBtn.addEventListener("click", function(event){
+  // Prep
   event.preventDefault()
+  let subjChks = document.querySelectorAll("#subjChk")
+  subjchektd = []
+
+  // Actions
+  // Subject checked
+  subjChks.forEach((item,i)=>{
+    subjchektd.push([item.value,item.checked])
+
+  })
+  console.log(subjchektd) 
+
+  // days checked
   chkDia.forEach((item,i)=>{
     choices.Dias[i] = item.checked
-    // console.log(choices.Dias)
   })
+
+  // Hours checked
   choices.Rango.chk = RanH_chk.checked
   RanH_i.forEach((item,k)=>{
     choices.Rango.i[k] = item.value
@@ -188,10 +214,11 @@ subBtn.addEventListener("click", function(event){
   RanH_f.forEach((item,k)=>{
     choices.Rango.f[k] = item.value
   })
-  console.log(choices)
+  // console.log(choices)
   console.log("Numero de Resultados:", applyFilt(choices))
 });
 
+// reset button 
 restBtn.addEventListener("click", function(event){
   event.preventDefault()
   FilterForm.reset()
@@ -202,6 +229,7 @@ restBtn.addEventListener("click", function(event){
   console.log("Numero de Resultados:", applyFilt(DefaultChoices))
 });
 
+// Range buttons
 ranMan.addEventListener("click", function(event){
   event.preventDefault()
   RanH_chk.checked = true
@@ -220,6 +248,27 @@ ranNoche.addEventListener("click", function(event){
   ChangeRange(ranNocheD)
   UpdateRango()
 })
+
+// Subjects filter
+
+// fetching subjects from database
+fetch(url)
+.then(data=>{ return data.json()} )
+.then(res=>{ 
+  res.forEach((mat)=> {
+    let input = document.createElement("input")
+    let sptext = document.createElement("span")
+    input.setAttribute("id","subjChk")
+    input.setAttribute("type","checkbox")
+    input.setAttribute("value", `${mat.name_id}`)
+
+    sptext.innerText = mat.name_id;
+    divMat.appendChild(sptext)
+    divMat.appendChild(input)
+    
+  })
+})
+
 /**
  * Default Filter Settings
  */

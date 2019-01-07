@@ -118,7 +118,6 @@ button {
 }
 
 
-
 .Formfilter{
   display: flex;
   padding-bottom: 25px;
@@ -171,6 +170,13 @@ input#chkDia {
   width: 100%;
   left: 0;
   text-align: center;
+}
+.matGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  justify-content: center;
+  align-items: center;
+  text-align: center; 
 }
 /* Media */
 @media (min-width: 768px) {

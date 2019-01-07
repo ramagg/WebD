@@ -50,3 +50,5 @@ let arrID = idGive(data)
 let comb = cartesian(data)
 
 
+
+
