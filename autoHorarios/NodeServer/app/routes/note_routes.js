@@ -3,25 +3,34 @@ let ObjectID = require('mongodb').ObjectID
 // Example of a route that has to be wrappted in a function
 // and takes the express instance and the database arguments
 
+
 module.exports = function(app, db){
-  // Read route
+  // All Materias
+
   app.get('/materias/all', (req, res) => {
       db.collection('Materias').find({}).toArray((err, items)=>{
         if (err) throw err;
         res.send(items)
       })
     })
+  // All hours
   app.get('/horarios/all', (req, res) => {
-  //   collection.find({}).toArray(function(error, documents) {
-  //     if (err) throw error;
-  
-  //     res.send(documents);
-  // });
     db.collection('horarios').find({}).toArray((err, items)=>{
       if (err) throw err;
       res.send(items)
     })
   })
+
+  // lectures request
+  app.post('/lectures', (req, res) => {
+    // Here is where is going to create the note/thing in the database
+    // const note = { text: req.body.body, title: req.body.title }
+    console.log(req.body)
+    res.send(req.body)
+  })
+
+
+  // ---- Tutorial ----
   // Read route
   app.get('/notes/:id', (req, res) => {
     const id = req.params.id

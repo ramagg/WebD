@@ -35,6 +35,11 @@ let ranNocheD = {
   'f': [22,22,22,22,22]  
 }
 
+
+
+/**
+ * Filter Functions
+ */
 function ChangeRange(obj){
   obj.i.forEach((item,j)=>{
     choices.Rango.i[j] = item
@@ -43,9 +48,7 @@ function ChangeRange(obj){
     choices.Rango.f[j] = item
   })
 }
-/**
- * Filter Functions
- */
+
 let FilterV = []
 function Dynamicfilter(obj, arr){
   // Object choices, arr to filter
@@ -138,13 +141,28 @@ subBtn.addEventListener("click", function(event){
   let subjChks = document.querySelectorAll("#subjChk")
   subjchektd = []
 
-  // Actions
+  // ---- Actions ---- 
+
   // Subject checked
   subjChks.forEach((item,i)=>{
     subjchektd.push([item.value,item.checked])
-
   })
-  console.log(subjchektd) 
+  // Fetching the data
+  console.log(subjchektd)   
+  let url = 'http://localhost:8000/lectures'
+
+  fetch(url, {
+    method: 'POST', 
+    body: JSON.stringify(subjchektd), // data can be `string` or {object}!
+    headers:{
+      'Accept': 'application/json',
+      'Content-Type': 'application/json',
+      // 'Content-Type': 'application/json'
+    }
+  }).then(res => res.json())
+  .catch(error => console.error('Error:', error))
+  .then(response => console.log('Success:', response));
+
 
   // days checked
   chkDia.forEach((item,i)=>{
@@ -160,7 +178,7 @@ subBtn.addEventListener("click", function(event){
     choices.Rango.f[k] = item.value
   })
   // console.log(choices)
-  console.log("Numero de Resultados:", applyFilt(choices))
+  console.log("Filtros Correctos: Numero de Resultados:", applyFilt(choices))
 });
 
 // reset button 
