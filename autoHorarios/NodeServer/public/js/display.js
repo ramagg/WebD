@@ -4,6 +4,8 @@ function HoraConversor(h){
   let Min = 0
   let dc = "00"
 
+  // console.log(h)
+
   Horas = Math.floor(h)
   Min = (h-Math.floor(h))*60
 
@@ -12,6 +14,7 @@ function HoraConversor(h){
   }else{
     convert = `0${Horas}:${(Min == 0) ? '00' : Math.floor(Min) }`
   }
+  
   return convert;
 }
 function Display(arrC){
@@ -23,16 +26,18 @@ function Display(arrC){
     let element = document.createElement("div");
     let p = ``;
 
+    let hour;
     item.forEach((clase) => {
       // Loop en Cada Dia de las clases
       clase.Dia.forEach((item, i) => {
         // Loop en cada Hora de los Dias
+        hour = parseFloat(clase.Horario[i]) + parseFloat(clase.dur);
         if (item){
           p = p+`<div class="Card" id=${i} style='background: ${clase.Color}; grid-column-start: ${i+1}; grid-row-start: ${ Math.round(clase.Horario[i])};'>
              
             <span class="CardName">${clase.fullName}:</span>
             <div class="CardInfo">
-              <span class="CardHora">${HoraConversor(clase.Horario[i])} - ${ HoraConversor(clase.Horario[i] + clase.dur) }</span>
+              <span class="CardHora">${HoraConversor(clase.Horario[i])} - ${ HoraConversor(hour) }</span>
               <span class="CardSalon">${clase.Salon}</span>
             </div>
           </div>` 

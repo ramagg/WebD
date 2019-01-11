@@ -141,6 +141,7 @@ const url = 'http://localhost:8000/materias/all';
 const divMat = document.querySelector(".matGrid")
 const subj_url = 'http://localhost:8000/subjects'
 
+let newComb;
 
 // Subbmit button 
 subBtn.addEventListener("click", function(event){
@@ -170,10 +171,10 @@ subBtn.addEventListener("click", function(event){
   .catch(error => console.error('Error:', error))
   .then(response => {
 
-    console.log(response)
-
+    // Parsing
     response.forEach( i => {
-      console.log(i.Materia)
+      i.Dia = JSON.parse(i.Dia)
+      i.Horario = JSON.parse(i.Horario)
     })
     let test = []
     // const newData = response.reduce((arr, el) => {
@@ -187,7 +188,7 @@ subBtn.addEventListener("click", function(event){
     // }, []);
     subjchektd.forEach(chektd => {
       let temp = response.reduce((arr, el) => {
-        console.log("  Heeeey heeey heeeey")
+        // console.log("  Heeeey heeey heeeey")
         if (el.Materia === chektd) {
           // If el is pushed directly it would be a reference
           // from the original data object
@@ -197,13 +198,10 @@ subBtn.addEventListener("click", function(event){
       }, []);    
       test.push(temp)  
     })
-    console.log(response)
-    console.log(test)
-    let newComb = cartesian(test)
-    console.log(newComb)
+
+    newComb = cartesian(test)
 
     newComb.filter(DISC);
-    console.log(newComb)
 
     Display(newComb);
 
