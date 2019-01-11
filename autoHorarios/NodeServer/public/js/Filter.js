@@ -35,6 +35,8 @@ let ranNocheD = {
   'f': [22,22,22,22,22]  
 }
 
+let subjchektd = [];
+
 
 
 /**
@@ -107,6 +109,12 @@ function applyFilt(ch){
   return FilterV.length;
 }
 
+// Handles the raw data sended from the server
+function handler(arr){
+  // Procesamiento de datos
+    // let newComb = cartesian(newD)
+    // applyFilt(choices)
+}
 /**
  * DOM Filter
  */
@@ -131,8 +139,8 @@ const ranNoche = document.querySelector("#ranNoche")
 // subject const
 const url = 'http://localhost:8000/materias/all';
 const divMat = document.querySelector(".matGrid")
+const subj_url = 'http://localhost:8000/subjects'
 
-let subjchektd = [];
 
 // Subbmit button 
 subBtn.addEventListener("click", function(event){
@@ -144,31 +152,68 @@ subBtn.addEventListener("click", function(event){
   // ---- Actions ---- 
 
   // Subject checked
-  subjChks.forEach((item,i)=>{
-    subjchektd.push([item.value,item.checked])
+  subjChks.forEach((item)=>{
+    if (item.checked){
+    subjchektd.push(item.value)
+    }
   })
-  // Fetching the data
-  console.log(subjchektd)   
-  let url = 'http://localhost:8000/lectures'
 
-  fetch(url, {
+  // Fetching the data
+  // console.log(subjchektd)   
+  fetch(subj_url, {
     method: 'POST', 
     body: JSON.stringify(subjchektd), // data can be `string` or {object}!
     headers:{
-      'Accept': 'application/json',
-      'Content-Type': 'application/json',
-      // 'Content-Type': 'application/json'
+      'Content-Type': 'application/json'
     }
   }).then(res => res.json())
   .catch(error => console.error('Error:', error))
-  .then(response => console.log('Success:', response));
+  .then(response => {
+
+    console.log(response)
+
+    response.forEach( i => {
+      console.log(i.Materia)
+    })
+    let test = []
+    // const newData = response.reduce((arr, el) => {
+    //   console.log("  Heeeey heeey heeeey")
+    //   if (el.Materia === 'Cdivv') {
+    //     // If el is pushed directly it would be a reference
+    //     // from the original data object
+    //     arr.push({...el});
+    //   }
+    //   return arr;
+    // }, []);
+    subjchektd.forEach(chektd => {
+      let temp = response.reduce((arr, el) => {
+        console.log("  Heeeey heeey heeeey")
+        if (el.Materia === chektd) {
+          // If el is pushed directly it would be a reference
+          // from the original data object
+          arr.push({...el});
+        }
+        return arr;
+      }, []);    
+      test.push(temp)  
+    })
+    console.log(response)
+    console.log(test)
+    let newComb = cartesian(test)
+    console.log(newComb)
+
+    newComb.filter(DISC);
+    console.log(newComb)
+
+    Display(newComb);
+
+  });
 
 
   // days checked
   chkDia.forEach((item,i)=>{
     choices.Dias[i] = item.checked
   })
-
   // Hours checked
   choices.Rango.chk = RanH_chk.checked
   RanH_i.forEach((item,k)=>{
@@ -178,7 +223,6 @@ subBtn.addEventListener("click", function(event){
     choices.Rango.f[k] = item.value
   })
   // console.log(choices)
-  console.log("Filtros Correctos: Numero de Resultados:", applyFilt(choices))
 });
 
 // reset button 
@@ -223,6 +267,8 @@ fetch(url)
     let sptext = document.createElement("span")
     input.setAttribute("id","subjChk")
     input.setAttribute("type","checkbox")
+    input.setAttribute("checked","true")
+    
     input.setAttribute("value", `${mat.name_id}`)
 
     sptext.innerText = mat.name_id;

@@ -51,4 +51,4 @@ function DISC(item){
   }
 }
 const Defaultresult = comb.filter(DISC);
-console.log('Numero de Resultados:', Defaultresult.length)
+// console.log('Numero de Resultados:', Defaultresult.length)

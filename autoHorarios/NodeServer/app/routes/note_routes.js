@@ -22,12 +22,51 @@ module.exports = function(app, db){
   })
 
   // lectures request
-  app.post('/lectures', (req, res) => {
-    // Here is where is going to create the note/thing in the database
-    // const note = { text: req.body.body, title: req.body.title }
-    console.log(req.body)
-    res.send(req.body)
+  app.post('/subjects', async (req, res, next) => {
+    try {
+      const items = await db.collection('horarios').find({ "Materia": { $in: req.body } }).toArray()
+      // console.log(req.body)
+      console.log(items)
+      res.send(items);
+    } catch (e) {
+      //this will eventually be handled by your error handling middleware
+      next(e) 
+    }
   })
+
+  // // lectures request
+  // app.post('/subjects', (req, res) => {
+  //   // Here is where is going to create the note/thing in the database
+  //   // const note = { text: req.body.body, title: req.body.title }
+  //   let arrSubjResponse = [];
+
+  //   db.collection('horarios').find({ "Materia": req.body[0][0] }).toArray()
+  //   .then((items) => {
+  //     // arrSubjResponse.push(items)
+  //     res.send(items)
+  //     // console.log(items)
+  //   }).catch(error => console.error('Error:', error))
+      
+  //   // req.body.forEach(subj => {
+  //   //   if ( subj[1] ) {
+
+  //   //     arrSubjResponse.push(subj[0])
+
+  //   //     db.collection('horarios').find({ "Materia": subj[0] }).toArray()
+  //   //     .then((items) => {
+  //   //       // arrSubjResponse.push(items)
+  //   //       res.send(items)
+  //   //       // console.log(items)
+  //   //     }).catch(error => console.error('Error:', error))
+
+  //   //   //  console.log("----------------------------", tmp)
+
+  //   //   }
+
+  //   // });
+
+    
+  // })
 
 
   // ---- Tutorial ----

@@ -1,12 +1,12 @@
-let newObj = function(object) {
-  let newObject = {};
-  for (let key in object) {
-    if (object.hasOwnProperty(key)) {
-      newObject[key] = object[key];
-    }
-  }
-  return newObject;
-};
+// let newObj = function(object) {
+//   let newObject = {};
+//   for (let key in object) {
+//     if (object.hasOwnProperty(key)) {
+//       newObject[key] = object[key];
+//     }
+//   }
+//   return newObject;
+// };
 
 // Combination of an array of arrays
 function cartesian(arg) {
@@ -25,28 +25,28 @@ function cartesian(arg) {
 	return r;
 };
 
-// Gives an array of every class in data
-function idGive(arr){
-	// Gives the id of each class in the data array
-	let r = []
-	data.forEach((items) => {
-		r.push(items.map(item => item.id))
-	})
-	return r;
-}
+// // Gives an array of every class in data
+// function idGive(arr){
+// 	// Gives the id of each class in the data array
+// 	let r = []
+// 	data.forEach((items) => {
+// 		r.push(items.map(item => item.id))
+// 	})
+// 	return r;
+// }
 
-// 
-// console.log(arrID);
+// // 
+// // console.log(arrID);
 
-// Gives the info of a class
-function claseInfo(id){
+// // Gives the info of a class
+// function claseInfo(id){
 
-}
-claseInfo("P1Cdivv");
-claseInfo("D1P1");
-// Discriminator 
-// It determinates if a combination is posible or not
-let arrID = idGive(data)
+// }
+// claseInfo("P1Cdivv");
+// claseInfo("D1P1");
+// // Discriminator 
+// // It determinates if a combination is posible or not
+// let arrID = idGive(data)
 let comb = cartesian(data)
 
 

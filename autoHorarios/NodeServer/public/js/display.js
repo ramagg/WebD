@@ -50,4 +50,4 @@ function Display(arrC){
   ResultNum.innerHTML = `Numero de Resultados: ${arrC.length}`
 }
 
-Display(Defaultresult);
+// Display(Defaultresult);
